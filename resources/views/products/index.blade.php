@@ -18,9 +18,6 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Pricing</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
       </ul>
     </div>
   </div>
@@ -58,7 +55,7 @@
             <td>{{ $product->name }}</td>
             <td>{{ $product->detail }}</td>
             <td>
-                <form action="{{ route('products.destroy',$product->id) }}" method="POST">
+                <form onsubmit="return confirm('Yakin?');" action="{{ route('products.destroy',$product->id) }}" method="POST">
      
                     <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">Show</a>
       
@@ -68,6 +65,9 @@
                     @method('DELETE')
         
                     <button type="submit" class="btn btn-danger">Delete</button>
+
+                    
+
                 </form>
             </td>
         </tr>
